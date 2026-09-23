@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'http://localhost:8080';
+const BASE = 'https://hotel-booking-java.onrender.com';
 
 // Rooms
 export const getAllRooms = () => axios.get(`${BASE}/rooms/getAll`);
