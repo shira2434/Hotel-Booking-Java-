@@ -17,6 +17,9 @@ export const updateCustomer = (c) => axios.put(`${BASE}/customers/update`, c);
 export const deleteCustomer = (id) => axios.delete(`${BASE}/customers/delete/${id}`);
 export const registerCustomer = (c) => axios.post(`${BASE}/customers/register`, c);
 export const loginCustomer = (email, password) => axios.post(`${BASE}/customers/login`, null, { params: { email, password } });
+export const adminLogin = (username, password) => axios.post(`${BASE}/admin/login`, null, { params: { username, password } });
+export const getVipCustomers = () => axios.get(`${BASE}/customers/vip`);
+export const getCustomerProfile = (id) => axios.get(`${BASE}/customers/profile/${id}`);
 
 // Bookings
 export const getAllBookings = () => axios.get(`${BASE}/bookings/getAll`);
@@ -27,3 +30,12 @@ export const getRevenueByRoomType = () => axios.get(`${BASE}/bookings/revenueByR
 export const extendBooking = (id, newCheckOut) =>
   axios.put(`${BASE}/bookings/extend/${id}?newCheckOut=${newCheckOut}`);
 export const getBookingStats = () => axios.get(`${BASE}/bookings/stats`);
+export const getUpcomingCheckIns = (days = 7) => axios.get(`${BASE}/bookings/upcoming/checkIns?days=${days}`);
+export const getUpcomingCheckOuts = (days = 7) => axios.get(`${BASE}/bookings/upcoming/checkOuts?days=${days}`);
+export const getTopCustomers = (limit = 5) => axios.get(`${BASE}/bookings/topCustomers?limit=${limit}`);
+export const upgradeRoom = (id) => axios.put(`${BASE}/bookings/upgrade/${id}`);
+export const getMonthlyReport = (year, month) => axios.get(`${BASE}/bookings/report/monthly?year=${year}&month=${month}`);
+export const getOccupancyByMonth = (year) => axios.get(`${BASE}/bookings/occupancyByMonth?year=${year}`);
+export const getDailyRevenue = (days = 14) => axios.get(`${BASE}/bookings/dailyRevenue?days=${days}`);
+export const getRoomStats = (roomId) => axios.get(`${BASE}/bookings/roomStats/${roomId}`);
+export const getCancellationRefund = (id) => axios.get(`${BASE}/bookings/refund/${id}`);

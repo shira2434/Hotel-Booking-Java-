@@ -12,7 +12,9 @@ public class FirstprojectApplication implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("http://localhost:3000").allowedMethods("*");
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000", "https://grand-hotel-mgmt.netlify.app")
+                .allowedMethods("*");
     }
 
 	public static void main(String[] args) {

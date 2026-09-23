@@ -21,4 +21,7 @@ public class Booking {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private boolean cancelled;
+    private int guestsCount;
+    private String notes;
+    private double totalPrice;
 }

@@ -6,31 +6,34 @@ export default function ConfirmDialog({ isOpen, title, message, onConfirm, onCan
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9998,
-      background: 'rgba(15,23,42,0.4)',
+      background: 'rgba(0,0,0,0.6)',
+      backdropFilter: 'blur(8px)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       animation: 'fadeIn 0.15s ease',
     }}>
       <div style={{
-        background: '#fff',
-        borderRadius: 16,
+        background: 'linear-gradient(135deg, #1a1025, #0f0f1a)',
+        border: '1px solid rgba(239,68,68,0.2)',
+        borderRadius: 20,
         padding: '28px 28px 24px',
-        width: 360,
-        boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
+        width: 380,
+        boxShadow: '0 24px 60px rgba(0,0,0,0.6)',
         animation: 'popIn 0.2s ease',
       }}>
         <div style={{
-          width: 48, height: 48,
-          background: '#fef2f2',
-          borderRadius: 12,
+          width: 52, height: 52,
+          background: 'rgba(239,68,68,0.12)',
+          border: '1px solid rgba(239,68,68,0.2)',
+          borderRadius: 14,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '1.4rem',
-          marginBottom: 16,
+          fontSize: '1.5rem',
+          marginBottom: 18,
         }}>🗑️</div>
 
-        <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', marginBottom: 8 }}>
+        <div style={{ fontSize: '1rem', fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>
           {title}
         </div>
-        <div style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.5, marginBottom: 24 }}>
+        <div style={{ fontSize: '0.85rem', color: 'rgba(148,163,184,0.8)', lineHeight: 1.6, marginBottom: 24 }}>
           {message}
         </div>
 
@@ -38,29 +41,31 @@ export default function ConfirmDialog({ isOpen, title, message, onConfirm, onCan
           <button
             onClick={onCancel}
             style={{
-              flex: 1, padding: '9px 0',
-              borderRadius: 8, border: '1.5px solid #e2e8f0',
-              background: '#fff', color: '#374151',
+              flex: 1, padding: '10px 0',
+              borderRadius: 10, border: '1px solid rgba(255,255,255,0.1)',
+              background: 'rgba(255,255,255,0.05)', color: '#94a3b8',
               fontSize: '0.875rem', fontWeight: 600,
               cursor: 'pointer', transition: 'all 0.15s',
+              fontFamily: 'Inter, sans-serif',
             }}
-            onMouseEnter={e => e.target.style.background = '#f8fafc'}
-            onMouseLeave={e => e.target.style.background = '#fff'}
+            onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.08)'}
+            onMouseLeave={e => e.target.style.background = 'rgba(255,255,255,0.05)'}
           >
             ביטול
           </button>
           <button
             onClick={onConfirm}
             style={{
-              flex: 1, padding: '9px 0',
-              borderRadius: 8, border: 'none',
+              flex: 1, padding: '10px 0',
+              borderRadius: 10, border: 'none',
               background: 'linear-gradient(135deg, #ef4444, #dc2626)',
               color: '#fff',
               fontSize: '0.875rem', fontWeight: 600,
               cursor: 'pointer', transition: 'all 0.15s',
-              boxShadow: '0 4px 12px rgba(239,68,68,0.3)',
+              boxShadow: '0 4px 15px rgba(239,68,68,0.3)',
+              fontFamily: 'Inter, sans-serif',
             }}
-            onMouseEnter={e => e.target.style.opacity = '0.9'}
+            onMouseEnter={e => e.target.style.opacity = '0.85'}
             onMouseLeave={e => e.target.style.opacity = '1'}
           >
             מחק
@@ -70,7 +75,7 @@ export default function ConfirmDialog({ isOpen, title, message, onConfirm, onCan
 
       <style>{`
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes popIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
       `}</style>
     </div>
   );

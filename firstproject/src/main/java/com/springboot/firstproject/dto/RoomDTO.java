@@ -9,4 +9,8 @@ public class RoomDTO {
     private String type;
     private double pricePerNight;
     private boolean available;
+    private int floor;
+    private int maxGuests;
+    private String description;
+    private String amenities;
 }

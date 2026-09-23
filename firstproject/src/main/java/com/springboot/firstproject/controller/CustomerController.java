@@ -4,14 +4,15 @@ import com.springboot.firstproject.dto.CustomerDTO;
 import com.springboot.firstproject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
 
-    @Autowired
-    private CustomerService cs;
+    @Autowired private CustomerService cs;
 
     @GetMapping("/getAll")
     public List<CustomerDTO> getAll() { return cs.getAll(); }
@@ -35,5 +36,15 @@ public class CustomerController {
     public CustomerDTO register(@RequestBody CustomerDTO customer) { return cs.register(customer); }
 
     @PostMapping("/login")
-    public CustomerDTO login(@RequestParam String email, @RequestParam String password) { return cs.login(email, password); }
+    public CustomerDTO login(@RequestParam String email, @RequestParam String password) {
+        return cs.login(email, password);
+    }
+
+    @GetMapping("/profile/{id}")
+    public Map<String, Object> getCustomerProfile(@PathVariable int id) {
+        return cs.getCustomerProfile(id);
+    }
+
+    @GetMapping("/vip")
+    public List<CustomerDTO> getVipCustomers() { return cs.getVipCustomers(); }
 }
