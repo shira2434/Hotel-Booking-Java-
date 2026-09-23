@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllRooms, updateRoom } from '../api';
+import { getAllRooms } from '../api';
 import { useToastContext } from '../App';
 
 const statusConfig = {

@@ -56,7 +56,7 @@ export default function Reports() {
     getOccupancyByMonth(year).then(r => setOccupancy(r.data)).catch(() => {});
     getOccupancyByMonth(year - 1).then(r => setOccupancyPrev(r.data)).catch(() => {});
     getTopCustomers(10).then(r => setTopCustomers(r.data.topCustomers || [])).catch(() => {});
-  }, []);
+  }, [year]);
 
   useEffect(() => {
     getDailyRevenue(dailyDays).then(r => setDailyRevenue(r.data)).catch(() => {});

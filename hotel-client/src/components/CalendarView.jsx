@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllBookings, getAllRooms } from '../api';
+import { getAllBookings } from '../api';
 
 const DAYS = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'];
 const MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
@@ -7,13 +7,11 @@ const typeColors = { SINGLE: '#22c55e', DOUBLE: '#a855f7', SUITE: '#f59e0b' };
 
 export default function CalendarView() {
   const [bookings, setBookings] = useState([]);
-  const [rooms, setRooms] = useState([]);
   const [date, setDate] = useState(new Date());
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     getAllBookings().then(r => setBookings(r.data)).catch(() => {});
-    getAllRooms().then(r => setRooms(r.data)).catch(() => {});
   }, []);
 
   const year = date.getFullYear();
