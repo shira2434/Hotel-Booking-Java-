@@ -10,6 +10,7 @@ import com.springboot.firstproject.repository.RoomRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -74,6 +75,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public void add(BookingDTO dto) {
         Customer customer = cr.findById(dto.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found!"));
