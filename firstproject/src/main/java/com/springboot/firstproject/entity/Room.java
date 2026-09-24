@@ -8,7 +8,7 @@ import lombok.Data;
 public class Room {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String roomNumber;

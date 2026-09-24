@@ -112,10 +112,12 @@ public class BookingServiceImpl implements BookingService {
         booking.setGuestsCount(dto.getGuestsCount() > 0 ? dto.getGuestsCount() : 1);
         booking.setNotes(dto.getNotes());
         booking.setTotalPrice(price);
+        booking.setId(0);
         br.save(booking);
     }
 
     @Override
+    @Transactional
     public void update(BookingDTO dto) {
         Booking booking = br.findById(dto.getId())
                 .orElseThrow(() -> new RuntimeException("Booking not found!"));
@@ -170,6 +172,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public void extendBooking(int id, LocalDate newCheckOut) {
         Booking booking = br.findById(id)
                 .orElseThrow(() -> new RuntimeException("Booking not found!"));
@@ -267,6 +270,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public BookingDTO upgradeRoom(int bookingId) {
         Booking booking = br.findById(bookingId)
                 .orElseThrow(() -> new RuntimeException("Booking not found!"));

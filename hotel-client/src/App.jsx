@@ -12,6 +12,7 @@ import GlobalSearch from './components/GlobalSearch';
 import useToast from './useToast';
 import { getBookingStats } from './api';
 
+
 export const ToastContext = createContext(null);
 export const useToastContext = () => useContext(ToastContext);
 
@@ -28,9 +29,6 @@ const pages = [
 export default function App() {
   const [page, setPage] = useState('dashboard');
   const { toasts, removeToast, toast } = useToast();
-  const [user, setUser] = useState(null);
-
-  if (!user) return <Login onLogin={setUser} />;
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [notifCount, setNotifCount] = useState(0);
@@ -53,6 +51,8 @@ export default function App() {
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, []);
+
+
 
   return (
     <ToastContext.Provider value={toast}>
@@ -115,7 +115,6 @@ export default function App() {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: 12, padding: '6px 14px 6px 10px' }}>
                 <div className="avatar" style={{ width: 28, height: 28, fontSize: '0.75rem' }}>👤</div>
-                <span style={{ fontSize: '0.82rem', color: '#c4b5fd', fontWeight: 600 }}>{user?.name}</span>
               </div>
             </div>
           </div>

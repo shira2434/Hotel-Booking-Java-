@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'https://hotel-booking-java.onrender.com';
+const BASE = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 // Rooms
 export const getAllRooms = () => axios.get(`${BASE}/rooms/getAll`);

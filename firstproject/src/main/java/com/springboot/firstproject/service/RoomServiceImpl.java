@@ -22,9 +22,9 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void add(RoomDTO room) {
-        if (rr.existsById(room.getId()))
-            throw new RuntimeException("Room already exists!");
-        rr.save(mapper.map(room, Room.class));
+        Room r = mapper.map(room, Room.class);
+        r.setId(0);
+        rr.save(r);
     }
 
     @Override

@@ -36,9 +36,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void add(CustomerDTO customer) {
-        if (cr.existsById(customer.getId()))
-            throw new RuntimeException("Customer already exists!");
-        cr.save(mapper.map(customer, Customer.class));
+        Customer c = mapper.map(customer, Customer.class);
+        c.setId(0);
+        cr.save(c);
     }
 
     @Override
