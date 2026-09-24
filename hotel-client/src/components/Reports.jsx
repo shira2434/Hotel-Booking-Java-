@@ -146,11 +146,7 @@ export default function Reports() {
       </div>
 
       {/* Charts */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-        <div className="card">
-          <div className="card-header">
-            <div>
-              <div className="card-title">📊 תפוסה חודשית</div>
+      <div className="two-col-grid">
               <div className="card-subtitle">אחוז תפוסה לפי חודש</div>
             </div>
             <button className={`btn btn-sm ${compareMode ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setCompareMode(v => !v)}>
@@ -213,8 +209,7 @@ export default function Reports() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-        {/* Monthly report */}
+      <div className="two-col-grid" style={{ marginBottom: 0 }}>
         <div className="card">
           <div className="card-header">
             <div>

@@ -174,8 +174,7 @@ export default function Dashboard({ setPage }) {
       </div>
 
       {/* Charts row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-        {/* Occupancy by month */}
+      <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <div className="card">
           <div className="card-header">
             <div>
@@ -224,7 +223,7 @@ export default function Dashboard({ setPage }) {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+      <div className="two-col-grid">
         {/* Revenue by type */}
         <div className="card">
           <div className="card-header">
@@ -299,7 +298,7 @@ export default function Dashboard({ setPage }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+      <div className="two-col-grid">
         {/* Upcoming check-ins */}
         <div className="card">
           <div className="card-header">

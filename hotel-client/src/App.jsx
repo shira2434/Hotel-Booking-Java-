@@ -32,6 +32,7 @@ export default function App() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [notifCount, setNotifCount] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const current = pages.find(p => p.id === page);
 
   // ספירת התראות
@@ -57,7 +58,8 @@ export default function App() {
   return (
     <ToastContext.Provider value={toast}>
       <div className="app-layout">
-        <aside className="sidebar">
+        <div className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`} onClick={() => setSidebarOpen(false)} />
+        <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-logo">
             <div className="logo-mark">
               <div className="logo-icon">🏨</div>
@@ -70,7 +72,7 @@ export default function App() {
           <nav className="sidebar-nav">
             <div className="nav-section-label">ניווט</div>
             {pages.map(p => (
-              <button key={p.id} className={`nav-item ${page === p.id ? 'active' : ''}`} onClick={() => setPage(p.id)}>
+              <button key={p.id} className={`nav-item ${page === p.id ? 'active' : ''}`} onClick={() => { setPage(p.id); setSidebarOpen(false); }}>
                 <span className="nav-icon">{p.icon}</span>
                 {p.label}
               </button>
@@ -84,6 +86,7 @@ export default function App() {
         <div className="main-content">
           <div className="topbar">
             <div className="topbar-left">
+              <button className="hamburger" onClick={() => setSidebarOpen(v => !v)}>☰</button>
               <span className="breadcrumb">Grand Hotel</span>
               <span className="breadcrumb-sep">/</span>
               <span className="topbar-page">{current?.label}</span>
