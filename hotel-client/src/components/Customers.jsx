@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getAllCustomers, addCustomer, updateCustomer, deleteCustomer } from '../api';
+import { getAllCustomers, addCustomer, updateCustomer, deleteCustomer, getTopCustomers } from '../api';
 import { useToastContext } from '../App';
 import ConfirmDialog from './ConfirmDialog';
-import axios from 'axios';
-
-const BASE = 'http://localhost:8080';
 const vipColors = { GOLD: '#f59e0b', SILVER: '#94a3b8', BRONZE: '#cd7f32', NONE: '#475569' };
 const vipBg = { GOLD: 'rgba(245,158,11,0.1)', SILVER: 'rgba(148,163,184,0.1)', BRONZE: 'rgba(205,127,50,0.1)', NONE: 'rgba(71,85,105,0.1)' };
 const vipLabels = { GOLD: '👑 זהב', SILVER: '🥈 כסף', BRONZE: '🥉 ארד', NONE: 'רגיל' };
@@ -22,7 +19,7 @@ export default function Customers() {
 
   useEffect(() => {
     load();
-    axios.get(`${BASE}/bookings/topCustomers?limit=100`)
+    getTopCustomers(100)
       .then(r => {
         const map = {};
         (r.data.topCustomers || []).forEach(c => { map[c.customerId] = c; });

@@ -28,7 +28,9 @@ const pages = [
 export default function App() {
   const [page, setPage] = useState('dashboard');
   const { toasts, removeToast, toast } = useToast();
-  const [user] = useState({ name: 'מנהל המלון', role: 'ADMIN' });
+  const [user, setUser] = useState(null);
+
+  if (!user) return <Login onLogin={setUser} />;
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [notifCount, setNotifCount] = useState(0);
