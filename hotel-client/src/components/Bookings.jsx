@@ -81,7 +81,7 @@ export default function Bookings() {
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr) auto', gap: 12, alignItems: 'flex-end', marginBottom: 12 }}>
+            <div className="form-grid-4">
               <div className="form-group">
                 <label className="form-label">לקוח</label>
                 <select value={form.customerId} onChange={e => setForm({ ...form, customerId: +e.target.value })} required>
@@ -106,7 +106,7 @@ export default function Bookings() {
               </div>
               <button type="submit" className="btn btn-primary">הוסף</button>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: 12 }}>
+            <div className="form-grid-2">
               <div className="form-group">
                 <label className="form-label">מספר אורחים</label>
                 <input type="number" min={1} max={10} value={form.guestsCount} onChange={e => setForm({ ...form, guestsCount: +e.target.value })} />

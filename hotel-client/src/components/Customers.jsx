@@ -67,7 +67,7 @@ export default function Customers() {
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr) auto', gap: 12, alignItems: 'flex-end' }}>
+            <div className="form-grid-3">
               <div className="form-group">
                 <label className="form-label">שם מלא</label>
                 <input placeholder="ישראל ישראלי" value={form.fullName} onChange={e => setForm({ ...form, fullName: e.target.value })} required />

@@ -44,7 +44,7 @@ export default function Housekeeping() {
   return (
     <div>
       {/* Summary */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 16 }}>
+      <div className="housekeeping-grid">
         {Object.entries(statusConfig).map(([key, cfg]) => (
           <div key={key} className="stat-card" style={{ cursor: 'pointer', border: filter === key ? `1.5px solid ${cfg.color}44` : undefined }}
             onClick={() => setFilter(filter === key ? 'all' : key)}>

@@ -108,7 +108,7 @@ export default function Rooms() {
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr) auto', gap: 12, alignItems: 'flex-end', marginBottom: 12 }}>
+            <div className="form-grid-4">
               <div className="form-group">
                 <label className="form-label">מספר חדר</label>
                 <input placeholder="101" value={form.roomNumber} onChange={e => setForm({ ...form, roomNumber: e.target.value })} required />
@@ -134,7 +134,7 @@ export default function Rooms() {
                 {editing && <button type="button" className="btn btn-secondary" onClick={() => { setEditing(false); setForm({ id: 0, roomNumber: '', type: 'SINGLE', pricePerNight: 0, available: true, floor: 1, maxGuests: 2, description: '', amenities: '' }); }}>ביטול</button>}
               </div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr auto', gap: 12, alignItems: 'flex-end' }}>
+            <div className="form-grid-room">
               <div className="form-group">
                 <label className="form-label">קיבולת אורחים</label>
                 <input type="number" min={1} max={10} value={form.maxGuests || ''} onChange={e => setForm({ ...form, maxGuests: +e.target.value })} />
